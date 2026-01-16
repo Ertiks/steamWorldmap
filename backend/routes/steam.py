@@ -12,3 +12,7 @@ steam_bp = Blueprint("steam", __name__, url_prefix="/steam")
 def profile():
     return jsonify(get_profile(STEAM_API_KEY, STEAM_ID_DEBUG))
 
+@steam_bp.get("/games")
+def steamGames():
+    return jsonify()
+

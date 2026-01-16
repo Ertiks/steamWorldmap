@@ -1,5 +1,7 @@
-export default function Cardgame(){
 
+
+
+export default function GameCard(){
     return(
         <>
         
