@@ -15,10 +15,6 @@ function App() {
 
   return (
     <>
-      <Test />
-
-      <Cardgame />
-      
       <ProfileCard /> 
     </>
   )

@@ -31,5 +31,7 @@ def get_profile(api_key, steam_id):
     return{
         "steam_id": steam_id,
         "name": player.get("personaname"),
+        "avatar": player.get("avatar"),
+        "avatarmedium": player.get("avatarmedium"),
     }
     
