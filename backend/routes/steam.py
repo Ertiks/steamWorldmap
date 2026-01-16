@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify
 from config import STEAM_API_KEY, STEAM_ID_DEBUG
 
-from services.steam_service import get_profile
+from services.steam_service import get_profile, get_steam_games
 
 
 #blueprint : 
@@ -14,5 +14,5 @@ def profile():
 
 @steam_bp.get("/games")
 def steamGames():
-    return jsonify()
+    return jsonify(get_steam_games(STEAM_API_KEY, STEAM_ID_DEBUG))
 

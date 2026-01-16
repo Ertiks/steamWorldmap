@@ -9,11 +9,14 @@ import Test from './components/Test'
 import Cardgame from './components/GameCard'
 
 import ProfileCard from './components/ProfileCard'
+import GameCard from "./components/GameCard";
+import GameList from "./components/GameList";
 
 
 
 function App() {
   const [profile, setProfile] = useState(null)
+  const [games, setGames] = useState(null)
 
   useEffect(() => {
       fetch("http://localhost:5000/steam/profile")
@@ -25,19 +28,36 @@ function App() {
 
       .then(
         (data) => {
-          console.log(data.name)
           setProfile(data); 
         })
 
       .catch((err) => {
           console.error("erreur lors du fetch.")
-          setMessage("Erreur de connexion")
       });
   }, [])
+
+  useEffect(() => {
+    fetch("http://localhost:5000/steam/games")
+
+    .then((res) => {
+    if (!res.ok) throw new Error("HTTP error");
+      return res.json();
+    })
+
+    .then(
+      (data) => {
+        setGames(data)
+      })
+
+    .catch((err) => {
+        console.error("erreur lors du fetch.")
+    });
+  }, []);
 
   return (
     <>
       <ProfileCard profile={profile}/> 
+      <GameList games={games}/>
     </>
   )
 }

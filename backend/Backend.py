@@ -29,25 +29,3 @@ app.register_blueprint(steam_bp)
 def testRoute():
     return "Backend fonctionnel"
 
-# #-------------------------------
-# @app.route("/games")
-# def getSteamGames():
-
-#     url = (
-#         f"https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/"
-#         f"?key={STEAM_API_KEY}"
-#         f"&steamid={STEAM_ID}"
-#         f"&include_appinfo=true"
-#         f"&include_played_free_games=true"
-#         f"&format=json"
-#     )
-
-#     response = requests.get(url)
-
-#     if response.status_code != 200:
-#         return jsonify({"error":"error with steam API"}), 500
-    
-#     data = response.json()
-
-#     return jsonify(data["response"].get("game_count", -1))
-

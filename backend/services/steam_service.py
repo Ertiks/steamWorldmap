@@ -41,9 +41,9 @@ def get_steam_games(api_key, steam_id):
     url = (
         f"https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/"
         f"?key={api_key}"
-        f"&steamid=steam_id{steam_id}"
+        f"&steamid={steam_id}"
         f"&include_appinfo=true"
-        f"&include_played_free_games=true"
+        f"&include_played_free_games=false"
         f"&format=json"
     )
 
@@ -54,6 +54,7 @@ def get_steam_games(api_key, steam_id):
         raise SteamError("error Steam API")
     
     data = response.json()
+    games = data.get("response", {}).get("games", [])
 
-    return jsonify(data["response"].get("game_count", -1))
+    return games
     

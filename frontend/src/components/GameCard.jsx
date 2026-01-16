@@ -1,13 +1,11 @@
 
-
-
-export default function GameCard(){
+export default function GameCard( { game } ){
     return(
-        <>
+        <div className="game-card">
         
-            yomonpoteçava ?
+            {game.name}
         
-        </>
+        </div>
     )
 
 }
