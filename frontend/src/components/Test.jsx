@@ -5,7 +5,7 @@ export default function Test(){
     const [message, setMessage] = useState("")
 
     useEffect(() => {
-        fetch("http://localhost:5000/games")
+        fetch("http://localhost:5000/steam/profile")
         
         .then((res) => res.text()) //on transforme en text
         .then((data) => setMessage(data)) //on récupère la data et on l'affiche
